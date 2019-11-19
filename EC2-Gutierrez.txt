@@ -1,0 +1,89 @@
+Microsoft Windows [Versión 10.0.17763.107]
+(c) 2018 Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\Administrador>sqlplus
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mar Nov 19 09:49:37 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> show user
+USER is "SYSTEM"
+SQL> create user riegel IDENTIFIED BY 1234;
+
+User created.
+
+SQL> GRANT connect, resource to riegel;
+
+Grant succeeded.
+
+SQL> connec riegel/1234
+Connected.
+SQL> show user
+USER is "RIEGEL"
+SQL> create table categoria(
+  2  codigo int primary key,
+  3  descripcion varchar(50)not null);
+
+Table created.
+
+SQL> create table usuario(
+  2  codigo int primary key,
+  3  nombre varchar(50)not null,
+  4  pass varchar(50)not null);
+
+Table created.
+
+SQL> create table producto(
+  2   codigo int primary key,
+  3   nombre varchar(50)not null,
+  4   precio_unitario int);
+
+Table created.
+
+SQL> create sequence sq_categoria;
+
+Sequence created.
+
+SQL> INSERT INTO categoria(codigo, descripcion)
+  2  values(100,'Cocina');
+
+1 row created.
+
+SQL> INSERT INTO usuario(codigo, nombre, pass)
+  2  values(444,'James','chi');
+
+1 row created.
+
+SQL> INSERT INTO usuario(codigo,nombre,pass)
+  2  values(555,'Carlos','mon');
+
+1 row created.
+
+SQL> INSERT INTO producto(codigo, nombre, precio_unitario)
+  2  values(999,'azucar',15);
+
+1 row created.
+
+SQL> INSERT INTO producto(codigo, nombre, precio_unitario)
+  2  values(777,'arroz',20);
+
+1 row created.
+
+SQL> INSERT INTO categoria(codigo, descripcion)
+  2  values(522,'Platos');
+
+1 row created.
+
+SQL> create sequence sq_usuario;
+
+Sequence created.
+
+SQL> create sequence sq_producto;
+
+Sequence created.
+
+SQL>
